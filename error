@@ -1,0 +1,43 @@
+(base) [root@uxbld3141 generate]# python ./moorthi_final2_july1a.py ./QS_TT.xlsx VM NetworksVxRail apappor3001
+Traceback (most recent call last):
+  File "/home/anaconda/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 4411, in get_value
+    return libindex.get_value_at(s, key)
+  File "pandas/_libs/index.pyx", line 44, in pandas._libs.index.get_value_at
+  File "pandas/_libs/index.pyx", line 45, in pandas._libs.index.get_value_at
+  File "pandas/_libs/util.pxd", line 98, in pandas._libs.util.get_value_at
+  File "pandas/_libs/util.pxd", line 83, in pandas._libs.util.validate_indexer
+TypeError: 'str' object cannot be interpreted as an integer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "./moorthi_final2_july1a.py", line 290, in <module>
+    main()
+  File "./moorthi_final2_july1a.py", line 280, in main
+    networkdefn_jsonnw=network_to_json(network_defn_fromfile, network_common_defn_fromfile)
+  File "./moorthi_final2_july1a.py", line 187, in network_to_json
+    combined_final_df['network_json']=combined_final_df.apply(lambda row :  eth_gen(row) ,axis=1)
+  File "/home/anaconda/lib/python3.7/site-packages/pandas/core/frame.py", line 6878, in apply
+    return op.get_result()
+  File "/home/anaconda/lib/python3.7/site-packages/pandas/core/apply.py", line 186, in get_result
+    return self.apply_standard()
+  File "/home/anaconda/lib/python3.7/site-packages/pandas/core/apply.py", line 296, in apply_standard
+    values, self.f, axis=self.axis, dummy=dummy, labels=labels
+  File "pandas/_libs/reduction.pyx", line 618, in pandas._libs.reduction.compute_reduction
+  File "pandas/_libs/reduction.pyx", line 128, in pandas._libs.reduction.Reducer.get_result
+  File "./moorthi_final2_july1a.py", line 187, in <lambda>
+    combined_final_df['network_json']=combined_final_df.apply(lambda row :  eth_gen(row) ,axis=1)
+  File "./moorthi_final2_july1a.py", line 151, in eth_gen
+    splitstr=network_row[col].strip().split(' ')
+  File "/home/anaconda/lib/python3.7/site-packages/pandas/core/series.py", line 871, in __getitem__
+    result = self.index.get_value(self, key)
+  File "/home/anaconda/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 4419, in get_value
+    raise e1
+  File "/home/anaconda/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 4405, in get_value
+    return self._engine.get_value(s, k, tz=getattr(series.dtype, "tz", None))
+  File "pandas/_libs/index.pyx", line 80, in pandas._libs.index.IndexEngine.get_value
+  File "pandas/_libs/index.pyx", line 90, in pandas._libs.index.IndexEngine.get_value
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1618, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 1626, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'BCK Site 1(IP)'
